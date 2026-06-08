@@ -47,6 +47,8 @@ img,svg{display:block}
 .nav{max-width:1240px;margin:0 auto;padding:16px 26px;display:flex;align-items:center;gap:18px}
 .brand{display:flex;align-items:center;gap:11px;flex:none}
 .brand .mark{width:42px;height:42px;flex:none}
+.brand-logo{height:48px;width:auto;max-width:210px;object-fit:contain;display:block}
+.brand-fallback{display:none;align-items:center;gap:11px}
 .brand .wordmark{line-height:1.02}
 .brand .wordmark .a{font-family:"Fraunces",serif;font-weight:600;font-size:18px;letter-spacing:.01em;color:#fff;display:block}
 .brand .wordmark .b{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.7);display:block;margin-top:1px}
@@ -200,14 +202,18 @@ img,svg{display:block}
 <header class="site-header" id="siteHeader">
   <nav class="nav">
     <a class="brand" href="#">
-      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="32" r="31" fill="#8cc04e"/>
-        <circle cx="32" cy="32" r="26" fill="#264f33"/>
-        <path d="M32 46c0-9 5-17 14-20-2 10-7 17-14 20z" fill="#8cc04e"/>
-        <path d="M32 46c0-9-5-17-14-20 2 10 7 17 14 20z" fill="#a9d36a"/>
-        <path d="M32 46V28" stroke="#cfe6a6" stroke-width="2.4" stroke-linecap="round"/>
-      </svg>
-      <span class="wordmark"><span class="a">Australian Organic</span><span class="b">Certified since 1987</span></span>
+      <img class="brand-logo" src="logo.png" alt="Australian Organic"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span class="brand-fallback">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="31" fill="#8cc04e"/>
+          <circle cx="32" cy="32" r="26" fill="#264f33"/>
+          <path d="M32 46c0-9 5-17 14-20-2 10-7 17-14 20z" fill="#8cc04e"/>
+          <path d="M32 46c0-9-5-17-14-20 2 10 7 17 14 20z" fill="#a9d36a"/>
+          <path d="M32 46V28" stroke="#cfe6a6" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span class="wordmark"><span class="a">Australian Organic</span><span class="b">Certified since 1987</span></span>
+      </span>
     </a>
 
     <div class="menu">
